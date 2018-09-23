@@ -26,13 +26,16 @@ def rss():
     u =  request.args.get('u','http://feeds.bbci.co.uk/news/world/rss.xml')
     xml = get_webpage(u)
     return xml
-    
-@app.route('/alerts/<uid>/<aid>')
-def alerts(uid,aid):
-    #http://127.0.0.1:5000/alerts/17693298356275254038/2418355790508839210
-    #uid =  request.args.get('uid', '')
-    #aid =  request.args.get('aid', '')    
-    u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,aid)
+
+@app.route('/alerts/<id>', defaults={'uid': '17693298356275254038'})    
+@app.route('/alerts/<id>/<uid>')
+def alerts(id,uid):
+    #http://127.0.0.1:5000/alerts/2418355790508839210
+    #https://pyennio.azurewebsites.net/alerts/17693298356275254038/2418355790508839210
+    '''
+    https://pyennio.azurewebsites.net/alerts/2418355790508839210
+    '''
+    u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,id)
     xml = get_webpage(u)
     return xml
 
