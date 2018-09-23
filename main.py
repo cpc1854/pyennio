@@ -18,6 +18,7 @@ def index():
 def about():
     return 'The about page'
 
+@app.route('/version')
 def version():
     return sys.version
 
