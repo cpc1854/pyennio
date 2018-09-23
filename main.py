@@ -12,9 +12,12 @@ def get_webpage(url):
 def index():
     return 'Ennio Python API'
 
+@app.route('/about')
+def about():
+    return 'The about page'
 
-@app.route('/rss')
-def rss():
+@app.route('/getrss')
+def getrss():
     url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
     url = 'https://www.google.com/alerts/feeds/17693298356275254038/2632410756866989756'
     xml = get_webpage(url)
