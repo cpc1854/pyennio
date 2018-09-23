@@ -1,5 +1,6 @@
 import urllib
 
+import sys
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 app = Flask(__name__)
@@ -16,6 +17,10 @@ def index():
 @app.route('/about')
 def about():
     return 'The about page'
+
+def version():
+    return sys.version
+
 
 @app.route('/rss/')
 def rss():
