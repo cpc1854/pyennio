@@ -1,4 +1,5 @@
 import urllib
+
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 app = Flask(__name__)
@@ -16,11 +17,23 @@ def index():
 def about():
     return 'The about page'
 
-@app.route('/getrss')
-def getrss():
-    url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
-    url = 'https://www.google.com/alerts/feeds/17693298356275254038/2632410756866989756'
-    xml = get_webpage(url)
+@app.route('/rss/')
+def rss():
+    #url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
+    #url = 'https://www.google.com/alerts/feeds/17693298356275254038/2632410756866989756'
+    #if u == None: u = 'http://feeds.bbci.co.uk/news/world/rss.xml'
+    #u = 'sdafsdf'
+    u =  request.args.get('u','http://feeds.bbci.co.uk/news/world/rss.xml')
+    xml = get_webpage(u)
+    return xml
+    
+@app.route('/alerts/<uid>/<aid>')
+def alerts(uid,aid):
+    #http://127.0.0.1:5000/alerts/17693298356275254038/2418355790508839210
+    #uid =  request.args.get('uid', '')
+    #aid =  request.args.get('aid', '')    
+    u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,aid)
+    xml = get_webpage(u)
     return xml
 
 
