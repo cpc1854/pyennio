@@ -4,8 +4,9 @@ import sys
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
-from project import mylib
-from project import pr_weblinks
+import mylib
+import pr_weblinks
+
 #import project.pr_weblinks as pr_weblinks
 
 app = Flask(__name__)

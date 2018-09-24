@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import datetime
 
-from project import mylib
+import mylib
 
 def do_parsing(u, name, inurls, not_inurls, intitles, not_intitles, minlen_title=5):
     rss_channel = getRss_Channel(u, name, inurls, not_inurls, intitles, not_intitles, minlen_title)

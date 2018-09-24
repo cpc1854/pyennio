@@ -1,5 +1,5 @@
-import project.mylib
-import project.pr_weblinks
+import mylib
+import pr_weblinks
 import urllib
 from bs4 import BeautifulSoup
 import requests
