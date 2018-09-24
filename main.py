@@ -55,7 +55,7 @@ def alerts(id,uid):
     https://pyennio.azurewebsites.net/alerts/2418355790508839210
     '''
     u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,id)
-    xml = get_webpage(u)
+    xml = mylib.get_webpage(u)
     return xml
 
 
