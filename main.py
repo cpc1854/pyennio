@@ -22,7 +22,6 @@ def about():
 def version():
     return sys.version
 
-
 @app.route('/rss/')
 def rss():
     #url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
@@ -44,6 +43,11 @@ def alerts(id,uid):
     u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,id)
     xml = get_webpage(u)
     return xml
+
+@app.route('/weblinks/')
+def weblinks():
+    u =  request.args.get('u','https://edition.cnn.com/specials/cnn-heroes')    
+    return sys.version
 
 
 '''
