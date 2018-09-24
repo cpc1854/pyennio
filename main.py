@@ -4,10 +4,8 @@ import sys
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
-import mylib
-import pr_weblinks
-
-#import project.pr_weblinks as pr_weblinks
+#import mylib
+#import pr_weblinks
 
 app = Flask(__name__)
 
@@ -23,42 +21,6 @@ def about():
 @app.route('/version')
 def version():
     return sys.version
-
-@app.route('/rss/')
-def rss():
-    #url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
-    #url = 'https://www.google.com/alerts/feeds/17693298356275254038/2632410756866989756'
-    #if u == None: u = 'http://feeds.bbci.co.uk/news/world/rss.xml'
-    #u = 'sdafsdf'
-    u =  request.args.get('u','http://feeds.bbci.co.uk/news/world/rss.xml')
-    xml = mylib.get_webpage(u)
-    return xml
-
-@app.route('/weblinks/')
-def weblinks():
-    u =  request.args.get('u','https://edition.cnn.com/specials/cnn-heroes')    
-    name =  request.args.get('name','cnn-heroes')        
-    inurls =  request.args.get('inurls','cnnheroes,html')    
-    not_inurls =  request.args.get('not_inurls','fag')    
-    intitles =  request.args.get('intitles','')    
-    not_intitles =  request.args.get('not_intitles','')    
-    result = pr_weblinks.do_parsing(u, name, inurls, not_inurls, intitles, not_intitles)
-   
-    return result
-
-
-@app.route('/alerts/<id>', defaults={'uid': '17693298356275254038'})    
-@app.route('/alerts/<id>/<uid>')
-def alerts(id,uid):
-    #http://127.0.0.1:5000/alerts/2418355790508839210
-    #https://pyennio.azurewebsites.net/alerts/17693298356275254038/2418355790508839210
-    '''
-    https://pyennio.azurewebsites.net/alerts/2418355790508839210
-    '''
-    u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,id)
-    xml = mylib.get_webpage(u)
-    return xml
-
 
 
 '''
