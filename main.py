@@ -23,6 +23,15 @@ def about():
 def version():
     return sys.version
 
+@app.route('/rss/')
+def rss():
+    #url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
+    #url = 'https://www.google.com/alerts/feeds/17693298356275254038/2632410756866989756'
+    #if u == None: u = 'http://feeds.bbci.co.uk/news/world/rss.xml'
+    #u = 'sdafsdf'
+    u =  request.args.get('u','http://feeds.bbci.co.uk/news/world/rss.xml')
+    xml = mylib.get_webpage(u)
+    return xml
 
 '''
 @app.route('/')
