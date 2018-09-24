@@ -32,6 +32,12 @@ def rss():
     xml = get_webpage(u)
     return xml
 
+@app.route('/weblinks/')
+def weblinks():
+    u =  request.args.get('u','https://edition.cnn.com/specials/cnn-heroes')    
+    return u
+
+
 @app.route('/alerts/<id>', defaults={'uid': '17693298356275254038'})    
 @app.route('/alerts/<id>/<uid>')
 def alerts(id,uid):
@@ -44,10 +50,6 @@ def alerts(id,uid):
     xml = get_webpage(u)
     return xml
 
-@app.route('/weblinks/')
-def weblinks():
-    u =  request.args.get('u','https://edition.cnn.com/specials/cnn-heroes')    
-    return sys.version
 
 
 '''
