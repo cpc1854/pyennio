@@ -46,6 +46,7 @@ def generate_rss(channel):
         {items}
     </channel>
 </rss>'''
+
     item_template = '''
         <item>
             <title>{title}</title>

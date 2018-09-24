@@ -11,6 +11,7 @@ def do_parsing(u, name, inurls, not_inurls, intitles, not_intitles, minlen_title
     return result
     
 
+
 def getRss_Channel(u, name, inurls, not_inurls, intitles, not_intitles, minlen_title=5):
     if u == None: u = 'https://edition.cnn.com/specials/cnn-heroes'
     response = requests.get(u)
