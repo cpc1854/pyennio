@@ -5,7 +5,9 @@ from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
 import mylib
-import pr_weblinks
+#import pr_weblinks
+from bs4 import BeautifulSoup
+
 
 app = Flask(__name__)
 
