@@ -33,6 +33,18 @@ def rss():
     xml = mylib.get_webpage(u)
     return xml
 
+@app.route('/weblinks/')
+def weblinks():
+    u =  request.args.get('u','https://edition.cnn.com/specials/cnn-heroes')    
+    name =  request.args.get('name','cnn-heroes')        
+    inurls =  request.args.get('inurls','cnnheroes,html')    
+    not_inurls =  request.args.get('not_inurls','fag')    
+    intitles =  request.args.get('intitles','')    
+    not_intitles =  request.args.get('not_intitles','')    
+    result = pr_weblinks.do_parsing(u, name, inurls, not_inurls, intitles, not_intitles)
+   
+    return result
+
 '''
 @app.route('/')
 def index():
