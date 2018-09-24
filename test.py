@@ -1,16 +1,27 @@
-import os
+import project.mylib
+import project.pr_weblinks
 import urllib
+from bs4 import BeautifulSoup
+import requests
+import datetime
 
 
-def get_webpage(url):
-    #html = myHtml.get_webpage(url)
-    req = urllib.request.Request(url , headers={'User-Agent': 'Mozilla/5.0'})
-    return urllib.request.urlopen(req).read()
 
 def main():
-    url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
-    xml = get_webpage(url)
-    print(xml)
+    print('---------------')
+    
+    u =  'https://edition.cnn.com/specials/cnn-heroes'
+    name = 'cnn heroes'
+    inurls = 'cnnheroes,html'
+    not_inurls = 'fag'
+    intitles = ''
+    not_intitles = ''
+    
+    #rss_channel = pr_weblinks.getRss_Channel(u, name, inurls, not_inurls, intitles, not_intitles)
+    #r = mylib.generate_rss(rss_channel)
+    r = pr_weblinks.do_parsing(u, name, inurls, not_inurls, intitles, not_intitles)
+    print(r)
+    print('---------------')    
     pass
 
 
