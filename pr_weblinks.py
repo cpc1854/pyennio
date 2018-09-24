@@ -49,5 +49,6 @@ def getRss_Channel(u, name, inurls, not_inurls, intitles, not_intitles, minlen_t
         rss_items.append(item)    
         #print('href:', href, '\r' ,title)
         #print('-----------------------')
+    print('rss_items cn:', len(rss_items))
     rss_channel = mylib.mRss_Channel(title=name, link=u, items=rss_items)
     return rss_channel

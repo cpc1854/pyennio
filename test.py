@@ -16,6 +16,12 @@ def main():
     not_inurls = 'fag'
     intitles = ''
     not_intitles = ''
+
+    u =  'http://www.lifescience.ntu.edu.tw/2016/index.html'
+    name = 'ntu'
+    inurls = 'news,html'
+    not_inurls = None
+
     
     #rss_channel = pr_weblinks.getRss_Channel(u, name, inurls, not_inurls, intitles, not_intitles)
     #r = mylib.generate_rss(rss_channel)
