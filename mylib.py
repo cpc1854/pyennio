@@ -1,5 +1,5 @@
 import urllib
-import datetime
+#import datetime
 
 nn = 'dsfsdf'
 
@@ -18,7 +18,7 @@ class mRss_Item():
        self.link = link
        self.description = description
        self.guid = guid if guid!=None else self.link
-       self.pubdate = pubdate if pubdate!=None else str(datetime.datetime.utcnow())
+       self.pubdate = pubdate if pubdate!=None else '' #str(datetime.datetime.utcnow())
 
 class mRss_Channel():
    def __init__(self,title,link, items ,description=None,pubdate=None,language='zh-TW'):    
@@ -27,7 +27,7 @@ class mRss_Channel():
        self.items = items
        
        self.description = description
-       self.pubdate = pubdate if pubdate!=None else str(datetime.datetime.utcnow())
+       self.pubdate = pubdate if pubdate!=None else '' #str(datetime.datetime.utcnow())
        self.language = language       
 
 
