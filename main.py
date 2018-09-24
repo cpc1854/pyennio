@@ -5,7 +5,7 @@ from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
 import mylib
-#import pr_weblinks
+import pr_weblinks
 
 app = Flask(__name__)
 
