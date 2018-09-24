@@ -45,6 +45,18 @@ def weblinks():
    
     return result
 
+@app.route('/alerts/<id>', defaults={'uid': '17693298356275254038'})    
+@app.route('/alerts/<id>/<uid>')
+def alerts(id,uid):
+    #http://127.0.0.1:5000/alerts/2418355790508839210
+    #https://pyennio.azurewebsites.net/alerts/17693298356275254038/2418355790508839210
+    '''
+    https://pyennio.azurewebsites.net/alerts/2418355790508839210
+    '''
+    u = 'https://www.google.com/alerts/feeds/{0}/{1}'.format(uid,id)
+    xml = mylib.get_webpage(u)
+    return xml
+
 '''
 @app.route('/')
 def index():
