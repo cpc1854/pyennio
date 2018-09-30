@@ -33,6 +33,15 @@ def rss():
     xml = mylib.get_webpage(u)
     return xml
 
+@app.route('/youtube_search/')
+def youtube_search():
+    url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&publishedAfter=2018-02-12T00:00:00Z&q={0}&key=AIzaSyAKw-hbjHCj_JXWRoZVd9eVPiTmElBPxX0'
+    q =  request.args.get('q','cnn+heroes')
+    url = url.format(q)
+    xml = mylib.get_webpage(url)
+    return xml
+
+
 @app.route('/weblinks/')
 def weblinks():
     u =  request.args.get('u','https://edition.cnn.com/specials/cnn-heroes')    
