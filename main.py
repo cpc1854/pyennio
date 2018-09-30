@@ -1,8 +1,20 @@
 import urllib
+import json
 from bs4 import BeautifulSoup
 import sys
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
+
+'''
+testing: 
+    http://127.0.0.1:5000/
+youtube_search:
+    https://pyennio.azurewebsites.net/youtube_search/?q=cnn%2Bheroes
+weblinks:
+    https://pyennio.azurewebsites.net/weblinks/?name=cnn-heroes&u=https://edition.cnn.com/specials/cnn-heroes&inurls=cnnheroes,html&not_inurls=fag
+alerts:    
+    https://pyennio.azurewebsites.net/alerts/2418355790508839210    
+'''
 
 import mylib
 import pr_weblinks
