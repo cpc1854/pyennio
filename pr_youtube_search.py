@@ -31,12 +31,13 @@ def getRss_Channel(name='youtube.search.heroes', q='cnn%2Bheroes'):
         href = 'https://www.youtube.com/watch?v=' + videoId
         title = item['snippet']['title']
         description = item['snippet']['description']
+        pubdate = item['snippet']['publishedAt'] #str(datetime.datetime.utcnow())
         item = mylib.mRss_Item(
             title = title,
             link = href,
             description = description,
             guid = href,
-            pubdate = str(datetime.datetime.utcnow())
+            pubdate = pubdate
         )
         rss_items.append(item)    
         #print('href:', href, '\r' ,title)

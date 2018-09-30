@@ -8,7 +8,7 @@ from flask import Flask, flash, redirect, render_template, request, session, abo
 testing: 
     http://127.0.0.1:5000/
 youtube_search:
-    https://pyennio.azurewebsites.net/youtube_search/?q=cnn%2Bheroes
+    https://pyennio.azurewebsites.net/youtube_search/?name=cnn_heroes&q=cnn%2Bheroes
 weblinks:
     https://pyennio.azurewebsites.net/weblinks/?name=cnn-heroes&u=https://edition.cnn.com/specials/cnn-heroes&inurls=cnnheroes,html&not_inurls=fag
 alerts:    
